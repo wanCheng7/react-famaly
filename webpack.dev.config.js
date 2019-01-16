@@ -15,7 +15,8 @@ module.exports = {
 
   devServer: {
     contentBase: path.join(__dirname, './dist'),
-    port: 7000
+    port: 7000,
+    historyApiFallback: true  //让所有的404定位到index.html
   },
   
   /*输出到dist文件夹，输出文件名字为bundle.js*/
