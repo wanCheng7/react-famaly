@@ -6,7 +6,6 @@ module.exports = {
     'react-hot-loader/patch',
     path.join(__dirname, 'src/index.js')
   ],
-
   /* 模块文件 */
   module: {
     rules: [{
@@ -15,16 +14,23 @@ module.exports = {
       include: path.join(__dirname, 'src')
     }]
   },
-
   devServer: {
     contentBase: path.join(__dirname, './dist'),
     port: 7000,
     historyApiFallback: true  //让所有的404定位到index.html
   },
-  
+  // 解析
+  resolve:{
+    alias: {
+      pages: path.resolve(__dirname, 'src/pages'),
+      component: path.resolve(__dirname, 'src/component'),
+      router: path.resolve(__dirname, 'src/router')
+    }
+  },
   /*输出到dist文件夹，输出文件名字为bundle.js*/
   output: {
-      path: path.join(__dirname, './dist'),
-      filename: 'bundle.js'
-  }
+    path: path.join(__dirname, './dist'),
+    filename: 'bundle.js'
+  },
+  devtool: 'inline-source-map'
 };
